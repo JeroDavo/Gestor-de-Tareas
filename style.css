@@ -1,0 +1,22 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    height: 100vh;
+    background-color: rgba(216, 174, 255, 0.384);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.app-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 5px;
+    border-style: solid;
+    margin-top: 250px;
+    margin-left: 550px;
+    margin-right: 550px;
+}
