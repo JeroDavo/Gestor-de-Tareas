@@ -31,6 +31,7 @@ function renderizarTablero() {
         card.style.margin = "10px 0";
         card.style.borderRadius = "4px";
         card.style.borderLeft = "4px solid #ffb703";
+      
         card.setAttribute('draggable', 'true');
 
         card.addEventListener('dragstart', (e) => {
