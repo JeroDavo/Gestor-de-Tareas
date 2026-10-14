@@ -31,8 +31,17 @@ function renderizarTablero() {
         card.style.margin = "10px 0";
         card.style.borderRadius = "4px";
         card.style.borderLeft = "4px solid #ffb703";
+        card.setAttribute('draggable', 'true');
 
-
+        card.addEventListener('dragstart', (e) => {
+            e.dataTransfer.setData('text/plain', tarea.id);
+            card.style.opacity = '0.5';
+    });
+        
+        card.addEventListener('dragend', () => {
+          card.style.opacity = '1'; // Regresa a su opacidad normal
+    });
+        
         const texto = document.createElement('p');
         texto.textContent = tarea.texto;
         texto.style.marginBottom = "10px";
@@ -113,6 +122,39 @@ btnGuardar.addEventListener('click', () => {
     guardarEnDisco();
     renderizarTablero();
     inputTarea.value = "";
+});
+
+const columnasKanban = [columnaTodo, columnaInProgress, columnaDone];
+
+columnasKanban.forEach((columna) => {
+    
+    
+    columna.addEventListener('dragover', (e) => {
+        e.preventDefault(); 
+        columna.style.background = "rgba(255, 183, 3, 0.05)"; 
+    });
+
+   
+    columna.addEventListener('dragleave', () => {
+        columna.style.background = "transparent";
+    });
+
+  
+    columna.addEventListener('drop', (e) => {
+        e.preventDefault();
+        columna.style.background = "transparent"; // Limpiamos el fondo
+
+      
+        const idTarea = parseInt(e.dataTransfer.getData('text/plain'), 10);
+        
+      
+        let nuevoEstado = 'todo';
+        if (columna.id === 'columnaInProgress') nuevoEstado = 'in-progress';
+        if (columna.id === 'columnaDone') nuevoEstado = 'done';
+
+
+        cambiarEstado(idTarea, nuevoEstado);
+    });
 });
 
 
