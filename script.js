@@ -40,7 +40,7 @@ function renderizarTablero() {
     });
         
         card.addEventListener('dragend', () => {
-          card.style.opacity = '1'; // Regresa a su opacidad normal
+          card.style.opacity = '1';
     });
         
         const texto = document.createElement('p');
