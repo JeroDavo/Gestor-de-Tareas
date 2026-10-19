@@ -11,11 +11,10 @@ body {
     padding: 30px 20px;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Permite scroll vertical si hay muchas tareas */
+    align-items: flex-start; 
     color: #2c3e50;
 }
 
-/* Contenedor principal original */
 .app-container {
     max-width: 1200px;
     width: 100%;
@@ -28,13 +27,10 @@ body {
 .app-container h1 {
     font-size: 2rem;
     text-align: center;
-    color: #4a154b; /* Tono morado elegante */
+    color: #4a154b;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
-/* ==========================================
-   SECCIÓN DE CAPTURA
-   ========================================== */
 .captura-seccion {
     display: flex;
     gap: 10px;
@@ -59,7 +55,7 @@ body {
 }
 
 .captura-seccion input:focus {
-    border-color: #a855f7; /* Morado estético al dar clic */
+    border-color: #a855f7; 
 }
 
 .captura-seccion button {
@@ -82,24 +78,17 @@ body {
     transform: scale(0.98);
 }
 
-/* ==========================================
-   TABLERO KANBAN RESPONSIVO
-   ========================================== */
 .tablero-kanban {
     display: grid;
-    /* Divide en 3 columnas si hay espacio, o las apila si la ventana se encoge */
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
     width: 100%;
     align-items: start;
 }
 
-/* ==========================================
-   COLUMNAS ORIGINALES
-   ========================================== */
 .columna {
     background-color: rgba(255, 255, 255, 0.75);
-    backdrop-filter: blur(5px); /* Efecto vidrio difuminado */
+    backdrop-filter: blur(5px);
     border-radius: 16px;
     padding: 20px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
@@ -125,9 +114,6 @@ body {
     flex: 1;
 }
 
-/* ==========================================
-   ESTILOS DE LAS TARJETAS (PARA TU SCRIPT)
-   ========================================== */
 .tarea-card {
     background: #ffffff;
     padding: 16px;
@@ -145,10 +131,10 @@ body {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
 }
 
-/* Bordes izquierdos dinámicos que maneja tu JS */
-.tarea-card.todo { border-left: 5px solid #f43f5e; }        /* Pendientes */
-.tarea-card.in-progress { border-left: 5px solid #3b82f6; } /* En proceso */
-.tarea-card.done { border-left: 5px solid #10b981; }        /* Terminadas */
+
+.tarea-card.todo { border-left: 5px solid #f43f5e; }        
+.tarea-card.in-progress { border-left: 5px solid #3b82f6; } 
+.tarea-card.done { border-left: 5px solid #10b981; }        
 
 .tarea-texto {
     font-size: 0.85rem;
@@ -163,7 +149,6 @@ body {
     align-items: center;
 }
 
-/* Botones de acción */
 .btn-accion {
     font-family: inherit;
     font-size: 0.75rem;

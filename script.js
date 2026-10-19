@@ -105,7 +105,7 @@ function cambiarEstado(idTarea, nuevoEstado) {
         return tarea;
     });
 
-    guardarEnDisco();
+    guardarEnDisco(); 
     renderizarTablero(); 
 }
 
