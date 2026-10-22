@@ -4,8 +4,8 @@ const path = require('path');
 require('dotenv').config();
 const { createClient } = require('@supabase/supabase-js');
 
-const supabaseUrl = process.env.SUPABASE_URL;
-const supabaseKey = process.env.SUPABASE_KEY;
+const supabaseUrl = 'https://rkqxfoqywwclcxsnxlus.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJrcXhmb3F5d3djbGN4c254bHVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI2ODMwMjksImV4cCI6MjEwODI1OTAyOX0.BBMfro5nO2onpMPdFHMXXyxx1FEzbBPIJv-eNQU7VvQ';
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 function activarEscuchaTiempoReal(ventana) {

@@ -7,3 +7,4 @@ Thumbs.db
 .env
 .env.local
 /Mi Gestor de Tareas-win32-x64/
+*.zip
