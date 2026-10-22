@@ -8,6 +8,18 @@ const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
+function activarEscuchaTiempoReal(ventana) {
+    supabase
+      .channel('cambios-tareas')
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'tareas' }, () => {
+        console.log("¡Cambio detectado en Supabase! Forzando actualización...");
+        ventana.webContents.send('tablero-cambiado');
+      })
+       .subscribe((status) => {
+        console.log("Estado de la conexión Realtime:", status);
+      });
+}
+
 function crearVentana() {
     const ventana = new BrowserWindow({
         width: 1000,
@@ -21,7 +33,10 @@ function crearVentana() {
     });
 
     ventana.loadFile('index.html');
+
+    activarEscuchaTiempoReal(ventana);
 }
+
 
 
 ipcMain.handle('obtener-tareas', async () => {
@@ -66,17 +81,8 @@ ipcMain.handle('eliminar-tarea', async (event, id) => {
 });
 
 
-app.whenReady().then(crearVentana);
 
-function activarEscuchaTiempoReal(ventana) {
-  supabase
-    .channel('cambios-tareas')
-    .on('postgres_changes', { event: '*', schema: 'public', table: 'tareas' }, () => {
-      // Cuando pasa CUALQUIER cambio (insertar, mover o borrar), le avisamos a la ventana
-      ventana.webContents.send('tablero-cambiado');
-    })
-    .subscribe();
-}
+app.whenReady().then(crearVentana);
 
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
