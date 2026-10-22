@@ -4,12 +4,18 @@
   "description": "Mi Gestor de Tareas de Escritorio",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "package": "electron-packager . \"Mi Gestor de Tareas\" --platform=win32 --arch=x64 --icon=icono/payasololi.ico --overwrite"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^44.7.0"
+    "electron": "^44.7.0",
+    "electron-packager": "^17.1.2"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.118.0",
+    "dotenv": "^18.0.8"
   }
 }
