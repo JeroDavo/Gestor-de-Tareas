@@ -1,0 +1,16 @@
+directories:
+  output: dist
+  buildResources: build
+appId: com.tuusuario.gestortareas
+productName: Mi Gestor de Tareas
+mac:
+  target:
+    - dmg
+    - zip
+  icon: icono/payasololi.icns
+win:
+  target:
+    - nsis
+  icon: icono/payasololi.ico
+files: []
+electronVersion: 44.7.0

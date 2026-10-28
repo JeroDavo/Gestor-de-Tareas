@@ -1,0 +1,31 @@
+name: Compilar Aplicación para Mac
+
+on:
+  push:
+    branches:
+      - main  # Cambia esto por "master" si tu rama principal se llama así
+
+jobs:
+  release:
+    runs-on: macos-latest
+    steps:
+      - name: Descargar codigo fuente
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Instalar dependencias
+        run: npm install
+
+      - name: Compilar App Universal de Mac
+        run: npm run package:mac
+
+      - name: Guardar instalador de Mac
+        uses: actions/upload-artifact@v4
+        with:
+          name: APP-MAC-UNIVERSAL
+          path: dist/*.dmg
