@@ -155,5 +155,5 @@ inicializarApp();
 
 window.apiSupabase.alCambiarTablero(() => {
     console.log("¡Cambio detectado en la nube! Actualizando tablero...");
-    inicializarApp(); 
+    inicializarApp();  
 });
