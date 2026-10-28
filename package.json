@@ -6,7 +6,7 @@
   "scripts": {
     "start": "electron .",
     "package:win": "electron-builder --win --x64",
-    "package:mac": "electron-builder --mac --universal"
+    "package:mac": "electron-builder --mac --universal --publish never"
   },
   "keywords": [],
   "author": "",
